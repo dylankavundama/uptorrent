@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:http/http.dart' as http;
 import 'package:admin_ib/Profil/insert_data.dart';
- 
 
 class UserPost extends StatefulWidget {
   const UserPost({Key? key}) : super(key: key);
@@ -49,6 +48,7 @@ class _UserPostState extends State<UserPost> {
       _isLoading = false;
     });
   }
+
   fetchUserData() {
     User? user = FirebaseAuth.instance.currentUser;
     if (user != null) {
@@ -59,16 +59,19 @@ class _UserPostState extends State<UserPost> {
       });
     }
   }
+
   Future<void> _refresh() async {
     fetchPosts();
     fetchUserData();
   }
+
   @override
   void initState() {
     super.initState();
     fetchPosts();
     fetchUserData();
   }
+
 //delete
   Future<void> delrecord(String id) async {
     try {
@@ -89,7 +92,6 @@ class _UserPostState extends State<UserPost> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -133,9 +135,6 @@ class _UserPostState extends State<UserPost> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
-             
- 
               Divider(),
               Center(
                 child: Text(
@@ -176,106 +175,19 @@ class _UserPostState extends State<UserPost> {
                             post.length,
                             (index) => Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: Colors.black12,
-                                    style: BorderStyle.solid,
-                                  ),
-                                  borderRadius: BorderRadius.circular(6.0),
+                              child: ListTile(
+                                title: Text(
+                                  post[index]["titre"],
+                                  style: DescStyle,
                                 ),
-                                child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text(
-                                        post[index]["titre"],
-                                        maxLines: 1,
-                                        textAlign: TextAlign.start,
-                                        style: TitreStyle,
-                                      ),
-                                    ),
-                                    ClipRRect(
-                                      borderRadius:
-                                          BorderRadius.circular(0.0),
-                                      child: Image.network(
-                     
-
-                                        // ignore: prefer_interpolation_to_compose_strings
-                                  
-                                            post[index]["source"],
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        height: MediaQuery.of(context)
-                                                .size
-                                                .height *
-                                            0.2,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Row(
-                                      children: [
-                                        TextButton(
-                                          onPressed: () {
-                                            showDialog(
-                                              context: context,
-                                              builder:
-                                                  (BuildContext context) {
-                                                return AlertDialog(
-                                                  title: const Text(
-                                                      "Confirmation"),
-                                                  content: const Text(
-                                                      "Voulez-vous vraiment supprimer ce post ?"),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () {
-                                                        Navigator.of(context)
-                                                            .pop(); // Ferme le dialog
-                                                        delrecord(post[index][
-                                                            "id"]); // Supprime l'enregistrement
-                                                      },
-                                                      child: Text(
-                                                        "Oui",
-                                                        style: SousTStyle,
-                                                      ),
-                                                    ),
-                                                    TextButton(
-                                                      onPressed: () {
-                                                        Navigator.of(context)
-                                                            .pop(); // Ferme le dialog
-                                                      },
-                                                      child: Text(
-                                                        "Non",
-                                                        style: DescStyle,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                );
-                                              },
-                                            );
-                                          },
-                                          child: Text("Supprimer",
-                                              style: DescStyle),
-                                        ),
-                                        TextButton(
-                                          onPressed: () {},
-                                          child: Text("Modifier",
-                                              style: DescStyle),
-                                        ),
-                                        TextButton.icon(
-                                          onPressed: () {},
-                                          icon: Icon(
-                                            Icons.share_outlined,
-                                            color: CouleurPrincipale,
-                                          ),
-                                          label: Text("Partager",
-                                              style: DescStyle),
-                                        )
-                                      ],
-                                    ),
-                                  ],
+                                subtitle: Text(
+                                  post[index]["titre"],
+                                  style: DescStyle,
+                                ),
+                                leading: CircleAvatar(
+                                  backgroundImage: NetworkImage(
+                                    post[index]["source"],
+                                  ),
                                 ),
                               ),
                             ),
