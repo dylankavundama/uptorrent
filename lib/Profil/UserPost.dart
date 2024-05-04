@@ -8,7 +8,6 @@ import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:admin_ib/Profil/insert_data.dart';
  
-import '../detailpage.dart';
 
 class UserPost extends StatefulWidget {
   const UserPost({Key? key}) : super(key: key);
@@ -135,30 +134,9 @@ class _UserPostState extends State<UserPost> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CircleAvatar(
-                  backgroundColor: CouleurPrincipale,
-                  radius: 33,
-                  backgroundImage: NetworkImage(userPhotoUrl ?? ''),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Admin: ${userName ?? ''}',
-                      style: TitreStyle,
-                    ),
-                    Text(
-                      'Mail: ${mail ?? ''}',
-                      style: DescStyle,
-                    ),
-                  ],
-                ),
-              ),
+
+             
+ 
               Divider(),
               Center(
                 child: Text(
@@ -197,126 +175,108 @@ class _UserPostState extends State<UserPost> {
                       : Column(
                           children: List.generate(
                             post.length,
-                            (index) => GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) {
-                                    return DetailPage(
-                                      categorie: "",
-                                  
-                                      titre: post[index]['titre'],
-                                      desc: post[index]['detail'],
-                                      image1: post[index]['source'],
-                              
-                                      auteur: post[index]['auteur'],
-                                    );
-                                  }),
-                                );
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: Colors.black12,
-                                      style: BorderStyle.solid,
-                                    ),
-                                    borderRadius: BorderRadius.circular(6.0),
+                            (index) => Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black12,
+                                    style: BorderStyle.solid,
                                   ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(
-                                          post[index]["titre"],
-                                          maxLines: 1,
-                                          textAlign: TextAlign.start,
-                                          style: TitreStyle,
-                                        ),
+                                  borderRadius: BorderRadius.circular(6.0),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        post[index]["titre"],
+                                        maxLines: 1,
+                                        textAlign: TextAlign.start,
+                                        style: TitreStyle,
                                       ),
-                                      ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(0.0),
-                                        child: Image.network(
+                                    ),
+                                    ClipRRect(
+                                      borderRadius:
+                                          BorderRadius.circular(0.0),
+                                      child: Image.network(
                      
 
-                                          // ignore: prefer_interpolation_to_compose_strings
-                                    
-                                              post[index]["source"],
-                                          width:
-                                              MediaQuery.of(context).size.width,
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.2,
-                                          fit: BoxFit.cover,
+                                        // ignore: prefer_interpolation_to_compose_strings
+                                  
+                                            post[index]["source"],
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        height: MediaQuery.of(context)
+                                                .size
+                                                .height *
+                                            0.2,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Row(
+                                      children: [
+                                        TextButton(
+                                          onPressed: () {
+                                            showDialog(
+                                              context: context,
+                                              builder:
+                                                  (BuildContext context) {
+                                                return AlertDialog(
+                                                  title: const Text(
+                                                      "Confirmation"),
+                                                  content: const Text(
+                                                      "Voulez-vous vraiment supprimer ce post ?"),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop(); // Ferme le dialog
+                                                        delrecord(post[index][
+                                                            "id"]); // Supprime l'enregistrement
+                                                      },
+                                                      child: Text(
+                                                        "Oui",
+                                                        style: SousTStyle,
+                                                      ),
+                                                    ),
+                                                    TextButton(
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop(); // Ferme le dialog
+                                                      },
+                                                      child: Text(
+                                                        "Non",
+                                                        style: DescStyle,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                );
+                                              },
+                                            );
+                                          },
+                                          child: Text("Supprimer",
+                                              style: DescStyle),
                                         ),
-                                      ),
-                                      Row(
-                                        children: [
-                                          TextButton(
-                                            onPressed: () {
-                                              showDialog(
-                                                context: context,
-                                                builder:
-                                                    (BuildContext context) {
-                                                  return AlertDialog(
-                                                    title: const Text(
-                                                        "Confirmation"),
-                                                    content: const Text(
-                                                        "Voulez-vous vraiment supprimer ce post ?"),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () {
-                                                          Navigator.of(context)
-                                                              .pop(); // Ferme le dialog
-                                                          delrecord(post[index][
-                                                              "id"]); // Supprime l'enregistrement
-                                                        },
-                                                        child: Text(
-                                                          "Oui",
-                                                          style: SousTStyle,
-                                                        ),
-                                                      ),
-                                                      TextButton(
-                                                        onPressed: () {
-                                                          Navigator.of(context)
-                                                              .pop(); // Ferme le dialog
-                                                        },
-                                                        child: Text(
-                                                          "Non",
-                                                          style: DescStyle,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                            },
-                                            child: Text("Supprimer",
-                                                style: DescStyle),
+                                        TextButton(
+                                          onPressed: () {},
+                                          child: Text("Modifier",
+                                              style: DescStyle),
+                                        ),
+                                        TextButton.icon(
+                                          onPressed: () {},
+                                          icon: Icon(
+                                            Icons.share_outlined,
+                                            color: CouleurPrincipale,
                                           ),
-                                          TextButton(
-                                            onPressed: () {},
-                                            child: Text("Modifier",
-                                                style: DescStyle),
-                                          ),
-                                          TextButton.icon(
-                                            onPressed: () {},
-                                            icon: Icon(
-                                              Icons.share_outlined,
-                                              color: CouleurPrincipale,
-                                            ),
-                                            label: Text("Partager",
-                                                style: DescStyle),
-                                          )
-                                        ],
-                                      ),
-                                    ],
-                                  ),
+                                          label: Text("Partager",
+                                              style: DescStyle),
+                                        )
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
