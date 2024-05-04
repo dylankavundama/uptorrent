@@ -21,11 +21,9 @@ class _LoginHomeState extends State<LoginHome> {
   }
 
   Future<void> checkLoginStatus() async {
-    // Vérifier si l'utilisateur est déjà connecté (implémentation dépendante de votre système d'authentification)
     bool isLoggedIn = await AuthService().isLoggedIn(); // Exemple hypothétique
 
     if (isLoggedIn) {
-      // Si l'utilisateur est déjà connecté, naviguez vers la page de profil
       // ignore: use_build_context_synchronously
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
@@ -60,7 +58,6 @@ class _LoginHomeState extends State<LoginHome> {
                   style: TitreStyle,
                 ),
               ),
-
               Padding(
                 padding: const EdgeInsets.all(1.0),
                 child: Center(
@@ -111,7 +108,6 @@ class _LoginHomeState extends State<LoginHome> {
                         ),
                       ),
                     ),
-
             ],
           ),
         ),

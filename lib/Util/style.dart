@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
-Color CouleurPrincipale = Colors.teal;
+Color CouleurPrincipale = Colors.orange;
 
 TextStyle TitreStyle = GoogleFonts.abel(fontSize: 24, color: Colors.black);
 
