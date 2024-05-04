@@ -56,7 +56,7 @@ class _LoginHomeState extends State<LoginHome> {
               ),
               Center(
                 child: Text(
-                  '    Réserver à l’Admin de IB App\n  ',
+                  'UP-torrent\n Admin ',
                   style: TitreStyle,
                 ),
               ),
@@ -112,39 +112,6 @@ class _LoginHomeState extends State<LoginHome> {
                       ),
                     ),
 
-              // ElevatedButton.icon(
-              //     onPressed: () => signIn(context),
-              //     icon:
-              //     label: Card(
-              //       child:
-              //     ),
-              //     style: ElevatedButton.styleFrom(
-              //       primary: CouleurPrincipale,
-              //       onPrimary: Colors.black,
-
-              //     ),
-              //   ),
-
-              // Padding(
-              //   padding: const EdgeInsets.only(top: 119),
-              //   child: Column(
-              //     mainAxisAlignment: MainAxisAlignment.end,
-              //     children: [
-              //       Text(
-              //         'En poursuivant, vous acceptez nos ',
-              //         style:
-              //             GoogleFonts.abel(fontSize: 15, color: Colors.black),
-              //       ),
-              //       Text(
-              //         "conditions d’utilisation et notre politique de confidentialité ",
-              //         style: GoogleFonts.abel(
-              //           fontSize: 15,
-              //           color: Colors.green,
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
             ],
           ),
         ),

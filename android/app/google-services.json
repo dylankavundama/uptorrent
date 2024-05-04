@@ -83,7 +83,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:1013780506595:android:ed51633452ad400b36e2d6",
         "android_client_info": {
-          "package_name": "com.upato"
+          "package_name": "com.uptadmin"
         }
       },
       "oauth_client": [
@@ -91,7 +91,7 @@
           "client_id": "1013780506595-snsjuhh0h1mk85k8jn078jdjp07ec253.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.upato",
+            "package_name": "com.uptadmin",
             "certificate_hash": "e061ef5a25008732b284447a8cb1fdc7b8f06637"
           }
         },
