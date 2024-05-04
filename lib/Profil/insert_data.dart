@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
 import 'package:line_icons/line_icons.dart';
 import 'package:admin_ib/Profil/UserPost.dart';
 import 'dart:core';
-import 'package:admin_ib/style.dart';
+ 
 import 'package:file_picker/file_picker.dart';
 class Inset_Data extends StatefulWidget {
   const Inset_Data({super.key});

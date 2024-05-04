@@ -7,7 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:admin_ib/Profil/insert_data.dart';
-import 'package:admin_ib/style.dart';
+ 
 import '../detailpage.dart';
 
 class UserPost extends StatefulWidget {
