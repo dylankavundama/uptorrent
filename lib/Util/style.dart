@@ -19,4 +19,4 @@ TextStyle SousTStyle =
 TextStyle DescStyle = GoogleFonts.abel(fontSize: 19, color: Colors.black);
 
 // ignore: non_constant_identifier_names
-var Adress_IP = 'https://comusrdc.org/upt';
+var Adress_IP = 'https://comusrdc.org/upt/';
