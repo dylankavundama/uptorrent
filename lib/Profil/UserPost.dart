@@ -176,6 +176,44 @@ class _UserPostState extends State<UserPost> {
                             (index) => Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: ListTile(
+                                trailing: IconButton(
+                                    onPressed: () {
+                                      showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: const Text("Confirmation"),
+                                            content: const Text(
+                                                "Voulez-vous vraiment supprimer ce post ?"),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.of(context)
+                                                      .pop(); // Ferme le dialog
+                                                  delrecord(post[index][
+                                                      "id"]); // Supprime l'enregistrement
+                                                },
+                                                child: Text(
+                                                  "Oui",
+                                                  style: SousTStyle,
+                                                ),
+                                              ),
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.of(context)
+                                                      .pop(); // Ferme le dialog
+                                                },
+                                                child: Text(
+                                                  "Non",
+                                                  style: DescStyle,
+                                                ),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    },
+                                    icon: const Icon(Icons.delete)),
                                 title: Text(
                                   post[index]["titre"],
                                   style: DescStyle,
