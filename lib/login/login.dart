@@ -8,6 +8,7 @@ class LoginHome extends StatefulWidget {
   const LoginHome({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _LoginHomeState createState() => _LoginHomeState();
 }
 
