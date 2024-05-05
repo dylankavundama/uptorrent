@@ -116,7 +116,7 @@ Future<void> _pickImage() async {
       });
     }
   } catch (e) {
-    print('Erreur lors de la sélection de l\'image : $e');
+    debugPrint('Erreur lors de la sélection de l\'image : $e');
   }
 }
 
