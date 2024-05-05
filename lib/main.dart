@@ -11,9 +11,6 @@ void main() async {
   MobileAds.instance.initialize();
   await Firebase.initializeApp();
   await Future.delayed(const Duration(seconds: 1));
-  // FlutterNativeSplash.remove();
-  // SystemChrome.setSystemUIOverlayStyle(
-
   runApp(
     const MyApp(),
   );
