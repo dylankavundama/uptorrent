@@ -5,11 +5,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
-// import 'package:image_picker/image_picker.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:admin_ib/Profil/UserPost.dart';
 import 'dart:core';
 import 'package:file_picker/file_picker.dart';
+// ignore: camel_case_types
 class Inset_Data extends StatefulWidget {
   const Inset_Data({super.key});
   @override
@@ -123,9 +123,7 @@ Future<void> _pickImage() async {
 
   @override
   Widget build(BuildContext context) {
-    final sreenh = MediaQuery.of(context).size.height;
     User? user = FirebaseAuth.instance.currentUser;
-    final sreenw = MediaQuery.of(context).size.width;
 
     return Scaffold(
       appBar: AppBar(
