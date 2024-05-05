@@ -55,7 +55,7 @@ class _LoginHomeState extends State<LoginHome> {
               ),
               Center(
                 child: Text(
-                  'UP-torrent\n Admin ',
+                  'UP-torrent ',
                   style: TitreStyle,
                 ),
               ),
