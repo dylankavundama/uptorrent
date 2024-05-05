@@ -49,10 +49,7 @@ class _LoginHomeState extends State<LoginHome> {
               const Padding(
                 padding: EdgeInsets.only(top: 60),
               ),
-              Image.asset(
-                height: MediaQuery.of(context).size.height * 0.4,
-                'assets/lg.png',
-              ),
+     
               Center(
                 child: Text(
                   'UP-torrent ',
