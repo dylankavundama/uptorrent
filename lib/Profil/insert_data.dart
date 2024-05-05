@@ -16,6 +16,7 @@ class Inset_Data extends StatefulWidget {
   State<Inset_Data> createState() => _Inset_DataState();
 }
 
+// ignore: camel_case_types
 class _Inset_DataState extends State<Inset_Data> {
   TextEditingController nom = TextEditingController();
   TextEditingController detail = TextEditingController();
@@ -25,20 +26,16 @@ class _Inset_DataState extends State<Inset_Data> {
   @override
   void initState() {
     super.initState();
-
     getrecord();
     super.initState();
   }
-
   @override
   void dispose() {
     super.dispose();
   }
-
   late String idenseu;
   // ignore: prefer_typing_uninitialized_variables
   var selectens;
-
   showToast({required String msg}) {
     return Fluttertoast.showToast(msg: msg);
   }
