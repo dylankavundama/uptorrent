@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:admin_ib/Profil/UserPost.dart';
 import 'package:admin_ib/login/authServices.dart';
-import 'package:admin_ib/Util/style.dart';
+import 'package:admin_ib/style.dart';
 
 class LoginHome extends StatefulWidget {
   const LoginHome({Key? key}) : super(key: key);

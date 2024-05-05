@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:admin_ib/Util/style.dart';
+import 'package:admin_ib/style.dart';
 import 'package:admin_ib/modal.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -41,6 +41,7 @@ class _Inset_DataState extends State<Inset_Data> {
   // ignore: prefer_typing_uninitialized_variables
   var selectens;
   showToast({required String msg}) {
+    // ignore: avoid_print
     return print('');
   }
 
@@ -53,7 +54,6 @@ class _Inset_DataState extends State<Inset_Data> {
         dataens = jsonDecode(response.body);
       });
     } catch (e) {
-      print(e);
     }
   }
 
