@@ -31,7 +31,6 @@ class _Inset_DataState extends State<Inset_Data> {
     getrecord();
     super.initState();
   }
-
   @override
   void dispose() {
     super.dispose();
