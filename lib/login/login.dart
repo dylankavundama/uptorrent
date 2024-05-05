@@ -47,7 +47,7 @@ class _LoginHomeState extends State<LoginHome> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Padding(
-                padding: EdgeInsets.only(top: 60),
+                padding: EdgeInsets.only(top: 333),
               ),
      
               Center(
