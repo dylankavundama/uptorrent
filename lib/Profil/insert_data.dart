@@ -31,6 +31,7 @@ class _Inset_DataState extends State<Inset_Data> {
     getrecord();
     super.initState();
   }
+
   @override
   void dispose() {
     super.dispose();
@@ -40,7 +41,7 @@ class _Inset_DataState extends State<Inset_Data> {
   // ignore: prefer_typing_uninitialized_variables
   var selectens;
   showToast({required String msg}) {
-    return Fluttertoast.showToast(msg: msg);
+    return print('');
   }
 
   List dataens = [];
@@ -159,7 +160,7 @@ class _Inset_DataState extends State<Inset_Data> {
                     children: [
                       const TextField(
                         decoration: InputDecoration(
-                          prefixIcon: Icon(LineIcons.list),
+                          prefixIcon: Icon(Icons.list),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(4),
