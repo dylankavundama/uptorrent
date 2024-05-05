@@ -9,7 +9,6 @@ import 'package:admin_ib/Profil/insert_data.dart';
 
 class UserPost extends StatefulWidget {
   const UserPost({Key? key}) : super(key: key);
-
   @override
   State<UserPost> createState() => _UserPostState();
 }
@@ -35,14 +34,12 @@ class _UserPostState extends State<UserPost> {
       final List<dynamic> result = jsonDecode(response.body);
 
       post = result
+          // ignore: non_constant_identifier_names
           .where((Actualite) => Actualite['auteur'] == user.displayName)
           .toList();
 
       post.sort((a, b) => b["id"].compareTo(a["id"]));
-    } else {
-      // Handle if user is not logged in
-      // For example, navigate to login screen
-    }
+    } else {}
 
     setState(() {
       _isLoading = false;
@@ -106,7 +103,7 @@ class _UserPostState extends State<UserPost> {
           icon: const Icon(Icons.arrow_back),
         ),
         actions: [
-          Text("${mail}"),
+          Text("$mail"),
           IconButton(
             onPressed: () {
               AuthService().signOut().then((_) {
