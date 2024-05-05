@@ -1,18 +1,13 @@
 import 'dart:developer';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_sign_in/google_sign_in.dart';
- 
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
-
   @override
+  // ignore: library_private_types_in_public_api
   _ProfilePageState createState() => _ProfilePageState();
 }
-
 class _ProfilePageState extends State<ProfilePage> {
   late User user;
 
@@ -22,9 +17,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState() {
     // user = auth.currentUser!;
-
     log(user.toString());
-
     super.initState();
   }
 
@@ -43,7 +36,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return GestureDetector(
       onTap: FocusScope.of(context).unfocus,
       child: Scaffold(
