@@ -92,14 +92,7 @@ class _UserPostState extends State<UserPost> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {
-            // Navigator.of(context).pushAndRemoveUntil(
-            //   MaterialPageRoute(
-            //     builder: (context) => HomePage(),
-            //   ),
-            //   (Route<dynamic> route) => false,
-            // );
-          },
+          onPressed: () {},
           icon: const Icon(Icons.arrow_back),
         ),
         actions: [

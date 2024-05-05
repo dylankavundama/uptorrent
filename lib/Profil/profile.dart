@@ -43,13 +43,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    //     SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
-    // SystemChrome.setSystemUIOverlayStyle(
-    //    SystemUiOverlayStyle(
-    //     statusBarColor: CouleurPrincipale,
-    //     statusBarBrightness: Brightness.light,
-    //   ),
-    // );
+
     return GestureDetector(
       onTap: FocusScope.of(context).unfocus,
       child: Scaffold(
