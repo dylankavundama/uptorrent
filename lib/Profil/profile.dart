@@ -8,6 +8,7 @@ class ProfilePage extends StatefulWidget {
   // ignore: library_private_types_in_public_api
   _ProfilePageState createState() => _ProfilePageState();
 }
+
 class _ProfilePageState extends State<ProfilePage> {
   late User user;
 
@@ -78,10 +79,6 @@ class _ProfilePageState extends State<ProfilePage> {
                         ],
                       ),
                       const Divider(),
-                      // TextButton(
-                      //   onPressed: _signOut,
-                      //   child: const Text('Sign out'),
-                      // ),
                     ],
                   ),
                 ),
@@ -92,10 +89,4 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
     );
   }
-
-//   Future<void> _signOut() async {
-//     await auth.signOut();
-//     await GoogleSignIn().signOut();
-//   }
-// }
 }
