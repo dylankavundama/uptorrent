@@ -108,7 +108,7 @@ class _UserPostState extends State<UserPost> {
             onPressed: () {
               AuthService().signOut().then((_) {
                 Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => LoginHome()),
+                  MaterialPageRoute(builder: (context) => const LoginHome()),
                 );
               });
             },
@@ -132,7 +132,7 @@ class _UserPostState extends State<UserPost> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Divider(),
+              const Divider(),
               Center(
                 child: Text(
                   'Mes Posts',
