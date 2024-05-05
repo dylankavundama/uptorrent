@@ -17,7 +17,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   void initState() {
-    // user = auth.currentUser!;
     log(user.toString());
     super.initState();
   }
