@@ -193,7 +193,8 @@ Future<void> _pickImage() async {
                           onChanged: (value) {
                             selectens = value;
                             idenseu = selectens;
-                            print("Valeur: " + selectens);
+                            // ignore: prefer_interpolation_to_compose_strings
+                            debugPrint("Valeur: " + selectens);
                             setState(() {});
                           },
                         ),
