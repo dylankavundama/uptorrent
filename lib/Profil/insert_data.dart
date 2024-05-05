@@ -133,7 +133,7 @@ Future<void> _pickImage() async {
         backgroundColor: CouleurPrincipale,
         title: Text(
           ' ${user?.displayName ?? "Non défini"}',
-          style: TextStyle(fontSize: 15),
+          style: const TextStyle(fontSize: 15),
         ),
       ),
       body: SingleChildScrollView(
