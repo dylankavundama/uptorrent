@@ -9,6 +9,7 @@ import 'package:line_icons/line_icons.dart';
 import 'package:admin_ib/Profil/UserPost.dart';
 import 'dart:core';
 import 'package:file_picker/file_picker.dart';
+
 // ignore: camel_case_types
 class Inset_Data extends StatefulWidget {
   const Inset_Data({super.key});
@@ -29,10 +30,12 @@ class _Inset_DataState extends State<Inset_Data> {
     getrecord();
     super.initState();
   }
+
   @override
   void dispose() {
     super.dispose();
   }
+
   late String idenseu;
   // ignore: prefer_typing_uninitialized_variables
   var selectens;
@@ -81,7 +84,6 @@ class _Inset_DataState extends State<Inset_Data> {
           'fichier', File(_image!.path).readAsBytesSync(),
           filename: _image!.path));
 
-
       var res = await request.send();
       var response = await http.Response.fromStream(res);
 
@@ -101,22 +103,20 @@ class _Inset_DataState extends State<Inset_Data> {
 
 //insert picture
   File? _image;
- 
 
-Future<void> _pickImage() async {
-  try {
-    FilePickerResult? result =
-        await FilePicker.platform.pickFiles(type: FileType.any);
-    if (result != null) {
-      setState(() {
-        _image = File(result.files.single.path!);
-      });
+  Future<void> _pickImage() async {
+    try {
+      FilePickerResult? result =
+          await FilePicker.platform.pickFiles(type: FileType.any);
+      if (result != null) {
+        setState(() {
+          _image = File(result.files.single.path!);
+        });
+      }
+    } catch (e) {
+      debugPrint('Erreur lors de la sélection de l\'image : $e');
     }
-  } catch (e) {
-    debugPrint('Erreur lors de la sélection de l\'image : $e');
   }
-}
-
 
   @override
   Widget build(BuildContext context) {
@@ -260,26 +260,21 @@ Future<void> _pickImage() async {
                     border: OutlineInputBorder(),
                   ),
                 ),
-
-
-                               const Padding(
+                const Padding(
                   padding: EdgeInsets.only(top: 10),
                 ),
                 TextField(
-            
                   readOnly: true,
-                  onTap:() => _pickImage(),
+                  onTap: () => _pickImage(),
                   decoration: const InputDecoration(
                     hintText: 'Fichier',
                     suffixIcon: Icon(Icons.file_download),
                     border: OutlineInputBorder(),
                   ),
                 ),
-              
                 const SizedBox(
                   height: 10,
                 ),
-
                 MaterialButton(
                   minWidth: double.maxFinite,
                   shape: RoundedRectangleBorder(
