@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'dart:convert';
 import 'package:admin_ib/style.dart';
 import 'package:admin_ib/login/authServices.dart';
@@ -83,7 +84,7 @@ class _UserPostState extends State<UserPost> {
         fetchUserData();
       }
     } catch (e) {
-      print(e);
+    //  print(e);
     }
   }
 
@@ -126,12 +127,12 @@ class _UserPostState extends State<UserPost> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Divider(),
-              Center(
-                child: Text(
-                  'Mes Posts',
-                  style: TitreStyle,
-                ),
-              ),
+              // Center(
+              //   child: Text(
+              //     'Mes Posts',
+              //     style: TitreStyle,
+              //   ),
+              // ),
               _isLoading
                   ? Padding(
                       padding: const EdgeInsets.only(top: 100),
