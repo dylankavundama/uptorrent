@@ -208,10 +208,7 @@ class _UserPostState extends State<UserPost> {
                                   post[index]["titre"],
                                   style: DescStyle,
                                 ),
-                                // subtitle: Text(
-                                //   post[index]["titre"],
-                                //   style: DescStyle,
-                                // ),
+                        
                                 leading: CircleAvatar(
                                   backgroundImage: NetworkImage(
                                     post[index]["source"],
