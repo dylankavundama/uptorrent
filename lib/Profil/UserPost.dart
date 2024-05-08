@@ -127,12 +127,7 @@ class _UserPostState extends State<UserPost> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Divider(),
-              // Center(
-              //   child: Text(
-              //     'Mes Posts',
-              //     style: TitreStyle,
-              //   ),
-              // ),
+ 
               _isLoading
                   ? Padding(
                       padding: const EdgeInsets.only(top: 100),
