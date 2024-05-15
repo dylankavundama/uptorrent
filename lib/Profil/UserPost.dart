@@ -84,7 +84,7 @@ class _UserPostState extends State<UserPost> {
         fetchUserData();
       }
     } catch (e) {
-    //  print(e);
+      //  print(e);
     }
   }
 
@@ -127,7 +127,6 @@ class _UserPostState extends State<UserPost> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Divider(),
- 
               _isLoading
                   ? Padding(
                       padding: const EdgeInsets.only(top: 100),
@@ -204,7 +203,6 @@ class _UserPostState extends State<UserPost> {
                                   post[index]["titre"],
                                   style: DescStyle,
                                 ),
-                        
                                 leading: CircleAvatar(
                                   backgroundImage: NetworkImage(
                                     post[index]["source"],

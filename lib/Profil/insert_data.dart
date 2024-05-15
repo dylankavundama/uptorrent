@@ -21,6 +21,7 @@ class Inset_Data extends StatefulWidget {
 // ignore: camel_case_types
 class _Inset_DataState extends State<Inset_Data> {
   TextEditingController nom = TextEditingController();
+  TextEditingController video = TextEditingController();
   TextEditingController detail = TextEditingController();
   TextEditingController source = TextEditingController();
   TextEditingController dateN = TextEditingController();
@@ -53,13 +54,13 @@ class _Inset_DataState extends State<Inset_Data> {
       setState(() {
         dataens = jsonDecode(response.body);
       });
-    } catch (e) {
-    }
+    } catch (e) {}
   }
 
   Future<void> savadatas(Entreprise entreprise, String email) async {
     if (nom.text.isEmpty ||
         detail.text.isEmpty ||
+        video.text.isEmpty ||
         source.text.isEmpty ||
         dateN.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -76,6 +77,7 @@ class _Inset_DataState extends State<Inset_Data> {
       var request = http.MultipartRequest('POST', ulr);
 
       request.fields['titre'] = nom.text;
+      request.fields['video'] = video.text;
       request.fields['cat'] = idenseu;
       request.fields['source'] = source.text;
       request.fields['detail'] = detail.text;
@@ -140,10 +142,6 @@ class _Inset_DataState extends State<Inset_Data> {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(10.0),
-                  child: Center(
-                    child: Image.network(
-                        "https://cdni.iconscout.com/illustration/premium/thumb/woman-create-new-post-online-8621118-6842172.png"),
-                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 0),
@@ -232,6 +230,22 @@ class _Inset_DataState extends State<Inset_Data> {
                 ),
                 TextField(
                   keyboardType: TextInputType.text,
+                  controller: video,
+                  decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.title),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(4),
+                        ),
+                      ),
+                      hintText: "Video",
+                      labelText: "video url"),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(top: 10),
+                ),
+                TextField(
+                  keyboardType: TextInputType.text,
                   controller: source,
                   decoration: const InputDecoration(
                       prefixIcon: Icon(Icons.web),
@@ -295,13 +309,17 @@ class _Inset_DataState extends State<Inset_Data> {
                         Entreprise(
                           titre: idenseu.trim(),
                           detail: detail.text.trim(),
+                          video: video.text.trim(),
                           source: source.text.trim(),
                           dateN: source.text.trim(),
                         ),
                         FirebaseAuth.instance.currentUser?.displayName ?? '',
                       ).then((value) {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => const UserPost()));
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => const UserPost(),
+                          ),
+                        );
                       }).whenComplete(() {
                         setState(() {
                           _isLoading = false;
